@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome, <%= user.name %>!</h1>
+    <p><a href="/auth/logout">Logout</a></p>
+
+    <h2>SAT Practice Problems</h2>
+
+    <ul>
+    <% problems.forEach(problem => { 
+        const status = userProgress[problem._id.toString()] || "Not Started";
+    %>
+        <li>
+        <a href="/problems/<%= problem._id %>"><%= problem.title %></a>
+        <% if (status === "Completed") { %>
+            <span style="color: green;">✅ Completed</span>
+        <% } else { %>
+            <span style="color: orange;">🟡 Not Started</span>
+        <% } %>
+        </li>
+    <% }) %>
+    </ul>
+
+</body>
+</html>
+
