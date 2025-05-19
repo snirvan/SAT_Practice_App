@@ -1,69 +1,13 @@
-// import { useEffect, useState } from 'react';
-// import React from 'react';
-
-// type Problem = {
-//   _id: string;
-//   title: string;
-// };
-
-// type ProgressMap = Record<string, 'Not Started' | 'Completed'>;
-
-// export default function HomePage() {
-//   const [problems, setProblems] = useState<Problem[]>([]);
-//   const [progress, setProgress] = useState<ProgressMap>({});
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     fetch('http://localhost:3001/api/problems', {
-//       credentials: 'include',
-//     })
-//       .then(res => {
-//         if (res.status === 401) {
-//           window.location.href = '/'; // Not logged in
-//         }
-//         return res.json();
-//       })
-//       .then(data => {
-//         setProblems(data.problems);
-//         setProgress(data.userProgress);
-//         setLoading(false);
-//       })
-//       .catch(err => {
-//         console.error('Failed to fetch problems:', err);
-//         setLoading(false);
-//       });
-//   }, []);
-
-//   if (loading) return <p className="text-center mt-10">Loading...</p>;
-
-//   return (
-//     <main className="max-w-2xl mx-auto p-6 space-y-4">
-//       <h1 className="text-2xl font-bold">SAT Practice Problems</h1>
-//       <ul className="space-y-2">
-//         {problems.map(problem => (
-//           <li key={problem._id} className="flex justify-between">
-//             <a href={`/problems/${problem._id}`} className="text-blue-600 hover:underline">
-//               {problem.title}
-//             </a>
-//             <span className={progress[problem._id] === 'Completed' ? 'text-green-600' : 'text-gray-400'}>
-//               {progress[problem._id] || 'Not Started'}
-//             </span>
-//           </li>
-//         ))}
-//       </ul>
-//     </main>
-//   );
-// }
-
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
-import {
-    CircularProgressbar,
-    buildStyles
-  } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+// import {
+//     CircularProgressbar,
+//     buildStyles
+//   } from 'react-circular-progressbar';
+// import 'react-circular-progressbar/dist/styles.css';
 
 type Problem = {
   _id: string;
@@ -128,10 +72,12 @@ export default function HomePage() {
         <p className="text-sm text-gray-600 mt-1">Ready to keep practicing?</p>
       </div> */}
         <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
-            <img
+            <Image
                 src={user.image} 
                 alt="Profile"
-                className="w-16 h-16 rounded-full object-cover border-3 border-blue-600"
+                width={64}
+                height={64}
+                className="rounded-full object-cover border-3 border-blue-600"
             />
             <div>
                 <h2 className="text-xl font-semibold text-gray-800">Welcome, {user.name}!</h2>
@@ -171,7 +117,7 @@ export default function HomePage() {
         //     bgColor = isCorrect ? 'bg-green-100 hover:bg-green-200' : 'bg-red-100 hover:bg-red-200';
         //   }
         const isCompleted = progress[problem._id] === 'Completed';
-        const bgColor = isCompleted ? 'bg-green-100 hover:bg-green-200' : 'bg-white hover:bg-gray-200';
+        // const bgColor = isCompleted ? 'bg-green-100 hover:bg-green-200' : 'bg-white hover:bg-gray-200';
           return (
             <li
               key={problem._id}
