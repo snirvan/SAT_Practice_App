@@ -129,7 +129,7 @@ app.get('/api/problems', ensureAuth, async (req, res) => {
   req.user.progress.forEach(p => {
     userProgressMap[p.problemId.toString()] = p.status;
   });
-
+  // console.log("req.user:", req.user);
   res.json({ problems, user: req.user, userProgress: userProgressMap });
 });
 
