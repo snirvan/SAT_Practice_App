@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 // import {
 //     CircularProgressbar,
@@ -72,13 +72,13 @@ export default function HomePage() {
         <p className="text-sm text-gray-600 mt-1">Ready to keep practicing?</p>
       </div> */}
         <div className="bg-white rounded-lg shadow-md p-6 flex items-center space-x-4">
-            <Image
+            {/* <Image
                 src={user.image} 
                 alt="Profile"
                 width={64}
                 height={64}
                 className="rounded-full object-cover border-3 border-blue-600"
-            />
+            /> */}
             <div>
                 <h2 className="text-xl font-semibold text-gray-800">Welcome, {user.name}!</h2>
                 <p className="text-sm text-gray-600 mt-1">Ready to keep practicing?</p>
